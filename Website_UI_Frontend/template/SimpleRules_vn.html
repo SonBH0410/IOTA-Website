@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="/image/sigM_ver2.png" type="image/x-icon">
+    <link rel="stylesheet" href="/style/style.css">
+	<link rel="stylesheet" href="/style/alertBox.css">
+	<link rel="stylesheet" href="/style/home.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script src="/javascript/SimpleRules_vn.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+	<title>Quy tắc cơ bản IOTA</title>
+	<style>
+		footer {
+            position: relative;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%; 
+            background-color: #b41d24; 
+            font-weight: 600; 
+            padding: 20px 20px;
+        }
+
+        footer .info-footer span{
+            text-align: right;
+            color: #FFFF;
+        }
+        footer span{
+            display: block;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+		.col-sm-1{
+			display: flex;
+			justify-content: center;
+		}
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+				<a href="https://www.facebook.com/profile.php?id=61552247136375"><img src="/image/HUST.jpg" alt="Logo" style="width:45px;"></a>
+                <a href="https://www.facebook.com/profile.php?id=61552247136375"><img src="/image/sigM.png" alt="Logo" style="width:120px;"></a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="home_vn.html">Trang chủ</a></li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Phương pháp đánh giá
+                  <span class="caret"style="left: 5%"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Quy tắc cơ bản của IOTA</a></li>
+                    <li><a href="LogisticModel_vn.html">Thuật toán LR1 & LR2</a></li>
+                    <li><a href="AdnexModel_vn.html">Đánh giá khối u phần phụ</a></li>
+                  </ul>
+                </li>
+				<li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Công cụ hỗ trợ
+                        <span class="caret"style="left: 5%"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Detect_vn.html">Phát hiện khối U</a></li>
+                        <li><a href="Segment_vn.html">Phân vùng khối U với gợi ý</a></li>
+                        <li><a href="Segment_Auto_vn.html">Phân vùng tự động khối U</a></li>
+                    </ul>
+                  </li>
+                <li><a href="https://www.facebook.com/profile.php?id=61552247136375">Về chúng tôi</a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=61552247136375">Liên hệ</a></li>
+                <li style="display: flex; flex-direction: row; gap: 10px; height: fit-content;padding-top: 15px; padding-bottom: 15px;">
+                        <div class="flag"><a href="#" title="Vietnamese"><img src="/image/vietnam.png" alt=""></a></div>
+                        <div class="flag"><a href="/template/SimpleRules.html" title="English"><img src="/image/england.jpg" alt=""></a></div>
+                </li>
+            </ul>
+          </div>
+      </nav>
+	<div class="notifications"></div>
+    <h1 style="text-align: center; margin-bottom: 50px;;">Quy tắc cơ bản của IOTA đánh giá khối u buồng trứng</h1>
+	<div class="row">	
+		<div class="col-sm-12 col-md-12">
+			<div class="panel panel-primary As-D">
+				<div class="panel-heading" style="background-color: #D9534F;">
+					<span class="panel-title">Tổng quát</span>
+				</div>
+				<div class="panel-body" id="part-one">
+                    <p>Quy tắc đơn giản của IOTA là một hệ thống phân loại trước phẫu thuật cho các khối u buồng trứng, bao gồm năm đặc điểm điển hình cho khối u lành tính (đặc điểm B) và năm đặc điểm điển hình cho khối u ác tính (đặc điểm M). Quy tắc đơn giản có thể được sử dụng để chẩn đoán Ung thư buồng trứng ở những phụ nữ có ít nhất một khối u phần phụ dai dẳng (buồng trứng, cạnh buồng trứng và ống dẫn trứng) và được coi là cần phải phẫu thuật. Dựa trên đặc điểm B hoặc M được áp dụng, các khối u được phân loại là lành tính, ác tính hoặc không phân biệt được:</p>
+                    <ul>
+						<li>Lành tính - Chỉ các đặc điểm lành tính được lựa chọn (đặc điểm B)</li>
+						<li>Ác tính - Chỉ các đặc điểm ác tính được lựa chọn (đặc điểm M)</li>
+						<li>Không thể kết luận - không đặc điểm nào được lựa chọn, hoặc các đặc điểm lành tính (đặc điểm B) và ác tính (đặc điểm M) đều được lựa chọn</li>
+					</ul>
+					<p>Hầu hết các khối u phần phụ trong nhóm các khối u thông thường có thể được phân loại chính xác là lành tính hoặc ác tính bằng cách sử dụng các quy tắc dựa trên siêu âm đơn giản. Đối với các khối u không thể phân loại bằng các quy tắc đơn giản, việc kiểm tra siêu âm bởi chuyên gia giám định có thể hữu ích.</p>
+					<!-- <img src="/IOTA_Web_HUST/productionfiles/SimpleRulesIOTA.png" alt="" style="width: 1000px;"> -->
+					<p style="font-weight:700;">Tham khảo:</p>
+					<p>1. Timmerman, D et al. “Simple ultrasound-based rules for the diagnosis of ovarian cancer.” Ultrasound in obstetrics & gynecology : the official journal of the International Society of Ultrasound in Obstetrics and Gynecology vol. 31,6 (2008): 681-90. <a href="https://pubmed.ncbi.nlm.nih.gov/18504770/">doi:10.1002/uog.5365</a></p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12">
+			<!-- Patient Information Box -->
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<span class="panel-title">Thông tin bệnh nhân</span>
+				</div>
+				<div class="panel-body">
+					<ul class="list-unstyled anamnesis_age Bi-m">
+						<li>
+							<div class="form-group clearfix">
+								<label>
+									ID bệnh nhân: <input class="w3-input w3-animate-input" type="text" name="patient_id">
+								</label>
+							</div>
+						</li>
+						<li>
+							<div class="form-group clearfix">
+								<label>
+									Họ và tên: <input class="w3-input" type="text" name="patient_fullname">
+								</label>
+							</div>
+						</li>
+						<li>
+							<div class="form-group clearfix">
+								<label>Chuẩn đoán:</label>
+							</div>
+						</li>
+						<li>
+							<div class="form-group clearfix-checkbox">
+								<label>Buồng trứng trái:<input type="checkbox" class="option-input checkbox" name="checkbox-left-ovary"></label>
+								<label>Buồng trứng phải:<input type="checkbox" class="option-input checkbox" name="checkbox-right-ovary"></label>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div> 
+		<!-- Left ovary -->
+		<div class="col-sm-12 col-md-12 left-ovary" style="display: none;">
+			<div style="background-color: rgba(255, 255, 255, 0.863); padding: 15px; border-radius: 3px; margin-bottom: 15px; border-left: 10px solid rgb(255, 153, 0);     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+				<span style="color: black ; font-size: 16px;">Buồng trứng trái</span></div>
+		</div>
+		<div class="col-sm-12 col-md-6 left-ovary" style="display: none;">
+			<!-- Benign -->
+			<div class="panel panel-primary benign">
+				<div class="panel-heading">
+					<span class="panel-title">Các đặc điểm cho việc phát hiện khối u lành tính (B)</span>
+				</div>
+				<div class="panel-body" style="height: 340px;">
+					<div class="row">
+						<div class="col-sm-10"></div>
+						<div class="col-sm-1" style="font-size: 13px; text-align: center;"><p>Có</p></div>
+						<div class="col-sm-1" style="font-size: 13px; text-align: center;"><p>Không</p></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>B1. Khối u đơn bào:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="unilocular_yes_left" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="unilocular_no_left" ></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>B2. Sự hiện diện của các thành phần rắn trong đó thành phần rắn lớn nhất có đường kính lớn hơn < 7 mm:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="solid_components_yes_left" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="solid_components_no_left"></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>B3. Sự hiện diện của bóng cản:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="acoustic_shadows_presence_yes_left" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="acoustic_shadows_presence_no_left" ></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>B4. Khối u đa thùy nhẵn có đường kính lớn nhất < 100mm:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="multilocular_tumor_yes_left" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="multilocular_tumor_no_left" ></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>B5. Không có máu chảy (mức 1)</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="no_blood_flow_yes_left" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="no_blood_flow_no_left" ></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-6 left-ovary" style="display: none;">
+			<!-- Ultrasound Findings Box -->
+			<div class="panel panel-primary malignant">
+				<div class="panel-heading">
+					<span class="panel-title">Các đặc điểm cho việc phát hiện khối u ác tính (M)</span>
+				</div>
+				<div class="panel-body" style="height: 340px;">
+					<div class="row">
+						<div class="col-sm-10"></div>
+						<div class="col-sm-1" style="font-size: 13px; text-align: center;"><p>Có</p></div>
+						<div class="col-sm-1" style="font-size: 13px; text-align: center;"><p>Không</p></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>M1. Khối u rắn không đều:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="irregular_solid_tumor_yes_left" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="irregular_solid_tumor_no_left" ></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>M2. Sự hiện diện của cổ trướng:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="presence_of_ascites_yes_left" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="presence_of_ascites_no_left"></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>M3. Ít nhất bốn cấu trúc nhú:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="papillary_structures_yes_left" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="papillary_structures_no_left" ></div>
+					</div>	
+					<div class="row">
+						<div class="col-sm-10"> <p>M4. Khối u đa thùy không đều có đường kính >= 100mm:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="irregular_soild_tumor_yes_left" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="irregular_soild_tumor_no_left" ></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>M5. Lưu lượng máu chảy mạnh (mức 4):</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="strong_blood_flow_yes_left" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="strong_blood_flow_no_left" ></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Right ovary -->
+		<div class="col-sm-12 col-md-12 right-ovary" style="display: none;">
+			<div style="background-color: rgba(255, 255, 255, 0.863); padding: 15px; border-radius: 3px; margin-bottom: 15px; border-left: 10px solid rgb(255, 153, 0);     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+				<span style="color: black ; font-size: 16px;">Buồng trứng phải</span></div>
+		</div>
+		<div class="col-sm-12 col-md-6 right-ovary" style="display: none;">
+			<!-- Benign -->
+			<div class="panel panel-primary benign">
+				<div class="panel-heading">
+					<span class="panel-title">Các đặc điểm cho việc phát hiện khối u lành tính (B)</span>
+				</div>
+				<div class="panel-body" style="height: 340px;">
+					<div class="row">
+						<div class="col-sm-10"></div>
+						<div class="col-sm-1" style="font-size: 13px; text-align: center;"><p>Có</p></div>
+						<div class="col-sm-1" style="font-size: 13px; text-align: center;"><p>Không</p></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>B1. Khối u đơn bào:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="unilocular_yes_right" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="unilocular_no_right" ></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>B2. Sự hiện diện của các thành phần rắn trong đó thành phần rắn lớn nhất có đường kính lớn hơn < 7 mm:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="solid_components_yes_right" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="solid_components_no_right"></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>B3. Sự xuất hiện của bóng cản:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="acoustic_shadows_presence_yes_right" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="acoustic_shadows_presence_no_right" ></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>B4. Khối u đa thùy nhẵn có đường kính lớn nhất < 100mm:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="multilocular_tumor_yes_right" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="multilocular_tumor_no_right" ></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>B5. Không có máu chảy (mức 1)</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="no_blood_flow_yes_right" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="no_blood_flow_no_right" ></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-6 right-ovary" style="display: none;">
+			<!-- Ultrasound Findings Box -->
+			<div class="panel panel-primary malignant">
+				<div class="panel-heading">
+					<span class="panel-title">Các đặc điểm cho việc phát hiện khối u ác tính (M)</span>
+				</div>
+				<div class="panel-body" style="height: 340px;">
+					<div class="row">
+						<div class="col-sm-10"></div>
+						<div class="col-sm-1" style="font-size: 13px; text-align: center;"><p>Có</p></div>
+						<div class="col-sm-1" style="font-size: 13px; text-align: center;"><p>Không</p></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>M1. Khối u rắn không đều:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="irregular_solid_tumor_yes_right" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="irregular_solid_tumor_no_right" ></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>M2. Sự hiện diện của cổ trướng:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="presence_of_ascites_yes_right" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="presence_of_ascites_no_right"></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>M3. Ít nhất bốn cấu trúc nhú:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="papillary_structures_yes_right" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="papillary_structures_no_right" ></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>M4. Khối u đa thùy không đều có đường kính lớn nhất >= 100mm:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="irregular_soild_tumor_yes_right" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="irregular_soild_tumor_no_right" ></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>M5. Lưu lượng máu chảy mạnh (mức 4):</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="strong_blood_flow_yes_right" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="strong_blood_flow_no_right" ></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-12 col-md-12" style="text-align: center;">
+		<!-- Buttons Box -->
+		<div class="actions">
+			<button type="button" onclick="resetCheckboxes()" id="clear" class="btn btn-danger" fdprocessedid="i6bn28">Xóa thông tin</button>
+			<button type="submit" onclick="checkResults()" class="btn btn-success" fdprocessedid="trq4g">Kiểm tra</button>
+			<button type="button" onclick="window.print()" id="savePatientInfo" class="btn btn-primary" ><i class="bi bi-floppy"></i></button>
+		</div>
+	</div>
+	<div class="col-sm-12 col-md-12">
+		<div id="group-text-diagnosis" style="display: none;">
+			<h3>Kết quả</h3>
+			<p style="display: none;" id="text-diagnosis-results-left"></p>
+			<p style="display: none;" id="text-diagnosis-results-right"></p>
+			<h3>Thông tin thêm</h3>
+			<p style="display: none;" id="text-diagnosis-comments-left"></p>
+			<p style="display: none;" id="text-diagnosis-comments-right"></p>
+		</div>
+	</div>
+	<footer style="margin-top: 120px;">
+        <div class="img-footer">
+            <a href="https://www.hust.edu.vn/"><img src="/image/logo-hust-02.png" alt="Logo" style="width: 200px;"></a>
+        </div>
+        <div class="info-footer">
+            <span>Dự án thuộc đề tài nghiên cứu của phòng Xử lý tín hiệu, Thông tin và Nội dung Đa phương tiện (SigM lab)</span>
+            <span>Địa chỉ: 802, 804, 806, 808, Tòa C7, Trường Điện-Điện tử, Đại học Bách Khoa Hà Nội</span>
+            <span>Điện thoại: (+84)999 999 999 - PGS.TS Lê Thị Lan</span>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/image/sigM_ver2.png" type="image/x-icon">
+    <link rel="stylesheet" href="/style/alertBox.css">
+	<link rel="stylesheet" href="/style/style.css">
+	<link rel="stylesheet" href="/style/home.css">
+    <link rel="stylesheet" href="/style/app.min.css">
+    <link rel="stylesheet" href="/style/style_uploadFile.css">
+
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="/javascript/app.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <script src="/javascript/Detect_vn.js" defer></script>
+    <script src="/javascript/Alarm.js" defer></script>
+	<title>Phát hiện khối U</title >
+    <style>
+        footer {
+            position: relative;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%; 
+            background-color: #b41d24; 
+            font-weight: 600; 
+            padding: 20px 20px;
+        }
+
+        footer .info-footer span{
+            text-align: right;
+            color: #FFFF;
+        }
+        #form_upload{
+            width: 100%;
+        }
+        #form_upload form{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #result_info{
+            background-color: #D9D9D9;
+            border-left: solid #B41D24 15px;
+            padding: 10px;
+            margin: 20px 0;
+        }
+        #result_info > h3{
+            color: #0061BA;
+            font-weight: 500;
+        }
+        .uploader label{
+            margin-bottom: 0px;
+        }
+        #result_none{
+            background-color: #D9D9D9;
+            border-left: solid #F3C309 15px;
+            padding: 10px;
+            margin: 20px 0;
+        }
+        #result_none > h4{
+            color: #B41D24;
+            font-weight: bold;
+        }
+        .uploader label{
+            margin-bottom: 0px;
+        }
+        /* Hiệu ứng riêng cho từng nút */
+        #detect_auto {
+            background-color: #28a745; /* Màu nền cho nút "Phát hiện tự động" */
+            color: #ffffff;
+        }
+
+        #detect_auto:hover {
+            background-color: #218838; /* Đổi màu nền khi hover */
+        }
+
+        #detect_auto:focus {
+            box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.5); /* Thêm viền sáng khi focus */
+        }
+    </style>
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="https://www.facebook.com/profile.php?id=61552247136375"><img src="/image/HUST.jpg" alt="Logo" style="width:45px;"></a>
+                <a href="https://www.facebook.com/profile.php?id=61552247136375"><img src="/image/sigM.png" alt="Logo" style="width:120px;"></a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="home_vn.html">Trang chủ</a></li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Phương pháp đánh giá
+                  <span class="caret"style="left: 5%"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="SimpleRules_vn.html">Quy tắc cơ bản của IOTA</a></li>
+                    <li><a href="LogisticModel_vn.html">Thuật toán LR1 & LR2</a></li>
+                    <li><a href="AdnexModel_vn.html">Đánh giá khối u phần phụ</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Công cụ hỗ trợ
+                        <span class="caret"style="left: 5%"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Detect_vn.html">Phát hiện khối U</a></li>
+                        <li><a href="Segment_vn.html">Phân vùng khối U với gợi ý</a></li>
+                        <li><a href="Segment_Auto_vn.html">Phân vùng tự động khối U</a></li>
+                    </ul>
+                  </li>
+                <li><a href="https://www.facebook.com/profile.php?id=61552247136375">Về chúng tôi</a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=61552247136375">Liên hệ</a></li>
+                <li style="display: flex; flex-direction: row; gap: 10px; height: fit-content;padding-top: 15px; padding-bottom: 15px;">
+                        <div class="flag"><a href="#" title="Vietnamese"><img src="/image/vietnam.png" alt=""></a></div>
+                        <div class="flag"><a href="Detect_en.html" title="English"><img src="/image/england.jpg" alt=""></a></div>
+                </li>
+            </ul>
+          </div>
+    </nav>
+    <div class="notifications"></div>  
+    <body>
+        <p style="text-align: center; font-weight: 600; font-size: 20px; margin: 50px 0">PHƯƠNG PHÁP PHÁT HIỆN TỰ ĐỘNG KHỐI U</p>
+        <div id="form_upload">
+            <form id="file-upload-form" class="uploader">
+                <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
+                <label for="file-upload" id="file-drag">
+                <img id="file-image" src="#" alt="Preview" class="hidden">
+                <div id="start">
+                    <i class="fa fa-download" aria-hidden="true"></i>
+                    <div>Chọn ảnh hoặc kéo thả ảnh tại đây</div>
+                    <div id="notimage" class="hidden" style="color: red;">Vui lòng chọn hoặc kéo thả hình ảnh</div>
+                    <span id="file-upload-btn" class="btn btn-primary" style="left: unset; transform: unset;">Chọn ảnh từ máy tính</span>
+                </div>
+                <div id="response" class="hidden">
+                    <div id="messages"></div>
+                    <progress class="progress" id="file-progress" value="0">
+                    <span>0</span>%
+                    </progress>
+                </div>
+                <div id="button-del-search" class="hidden">
+                    <button class="btn btn-success" data-toggle="modal" style="padding: 0px;"><i class="bi bi-file-earmark-x"></i>&nbsp;Xóa ảnh</button>
+                    <button type="button" class="btn btn-success" data-toggle="modal" style="padding: 0px;" id="detect_auto"><i class="bi bi-search"></i>&nbsp;Phát hiện tự động</button>
+                </div>
+                </label>
+            </form>
+        </div>
+        <br>        
+        <div id="result" style="display: none;">
+            <div id="result_title">
+                <h4 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center;font-weight: bold;margin-bottom: 30px;">KẾT QUẢ PHÁT HIỆN KHỐI U</h2>
+            </div>
+            <div id="result-img" style="display: flex; justify-content: center; width: max-width;">
+                <img id="convertedImage" src="" alt="Converted Image" style="max-width: 700px;">
+            </div>
+            <p id="text_coodinator"></p>
+        </div>
+        <div id="result_info" style="display: none;">
+            <h3>Thông tin khối u</h3>
+        </div>
+        <div id="result_none" style="display: none;">
+            <h4><i class="bi bi-exclamation-diamond"></i>&nbsp;Không có thông tin khối u được phát hiện</h3>
+        </div>
+    </body>  
+    <footer>
+        <div class="img-footer">
+            <a href="https://www.hust.edu.vn/"><img src="/image/logo-hust-02.png" alt="Logo" style="width: 200px;"></a>
+        </div>
+        <div class="info-footer">
+            <span>Dự án thuộc đề tài nghiên cứu của phòng Xử lý tín hiệu, Thông tin và Nội dung Đa phương tiện (SigM lab)</span>
+            <span>Địa chỉ: 802, 804, 806, 808, Tòa C7, Trường Điện-Điện tử, Đại học Bách Khoa Hà Nội</span>
+            <span>Điện thoại: (+84)999 999 999 - PGS.TS Lê Thị Lan</span>
+        </div>
+    </footer>
+</body>
+</html>

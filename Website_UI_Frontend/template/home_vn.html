@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/home.css">
+    <link rel="stylesheet" href="/style/preload.scss">
+    <link rel="icon" href="/image/sigM_ver2.png" type="image/x-icon">
+    <script src="/javascript/home.js" defer></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>IOTA</title>
+    <style>
+        footer {
+            position: relative;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%; 
+            background-color: #b41d24; 
+            font-weight: 600; 
+            padding: 20px 20px;
+        }
+
+        footer .info-footer span{
+            text-align: right;
+            color: #FFFF;
+        }
+        footer span{
+            display: block;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .col-lg-4 img {
+            object-fit: fill;
+            width: fit-content;
+            width: 400px;
+            height: 220px;
+            border-radius: 5px 5px 0 0;
+        }
+    </style>
+</head>
+<body>
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="https://www.facebook.com/profile.php?id=61552247136375"><img src="/image/HUST.jpg" alt="Logo" style="width:45px;"></a>
+                <a href="https://www.facebook.com/profile.php?id=61552247136375"><img src="/image/sigM.png" alt="Logo" style="width:120px;"></a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="home_vn.html">Trang chủ</a></li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Phương pháp đánh giá
+                  <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="SimpleRules_vn.html">Quy tắc cơ bản của IOTA</a></li>
+                    <li><a href="LogisticModel_vn.html">Thuật toán LR1 & LR2</a></li>
+                    <li><a href="AdnexModel_vn.html">Đánh giá khối u phần phụ</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Công cụ hỗ trợ
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="Detect_vn.html">Phát hiện khối U</a></li>
+                      <li><a href="Segment_vn.html">Phân vùng khối U với gợi ý</a></li>
+                      <li><a href="Segment_Auto_vn.html">Phân vùng tự động khối U</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://www.facebook.com/profile.php?id=61552247136375">Về chúng tôi</a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=61552247136375">Liên hệ</a></li>
+                <li style="display: flex; flex-direction: row; gap: 10px; height: fit-content;padding-top: 15px; padding-bottom: 15px;">
+                        <div class="flag"><a href="#" title="Tiếng Việt"><img src="/image/vietnam.png" alt=""></a></div>
+                        <div class="flag"><a href="home_en.html" title="English"><img src="/image/england.jpg" alt=""></a></div>
+                </li>
+            </ul>
+          </div>
+      </nav>
+    <p style="text-align: center; margin: 40px 0;font-size: 30px; font-weight: 700;" id="heading-main">Các phương pháp đánh giá khối u buồng trứng<p>
+    <div class="row" style="margin: 30px 0;">
+        <div class="col-md-12">
+            <div class="col-lg-4" style="text-align: center;">
+                <div class="block" onclick="redirectToPage('/template/SimpleRules_vn.html')">
+                    <img class="block-son-image" src="/image/simpleRules.PNG" alt="">
+                    <span class="block-son-text">Quy tắc cơ bản của IOTA</span>
+                </div>
+            </div>
+            <div class="col-lg-4" style="text-align: center;">
+                <div class="block" onclick="redirectToPage('/template/LogisticModel_vn.html')">
+                    <img class="block-son-image" src="/image/logisticModel.PNG" alt="">
+                    <span class="block-son-text">Thuật toán LR1 & LR2</span>
+                </div>
+            </div>
+            <div class="col-lg-4" style="text-align: center;">
+                <div class="block" onclick="redirectToPage('/template/AdnexModel_vn.html')">
+                    <img class="block-son-image" src="/image/adnexModel.PNG" alt="">
+                    <span class="block-son-text">Thuật toán đánh giá các khối u phần phụ</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-lg-4" style="text-align: center;">
+                <div class="block" onclick="redirectToPage('/template/Detect_vn.html')">
+                    <img class="block-son-image" src="/image/yolo.JPG" alt="">
+                    <span class="block-son-text">Phát hiện khối u</span>
+                </div>
+            </div>
+            <div class="col-lg-4" style="text-align: center;">
+                <div class="block" onclick="redirectToPage('/template/Segment_vn.html')">
+                    <img class="block-son-image" src="/image/prompt.png" alt="">
+                    <span class="block-son-text">Phân vùng khối u dựa trên gợi ý</span>
+                </div>
+            </div>
+            <div class="col-lg-4" style="text-align: center;">
+                <div class="block" onclick="redirectToPage('/template/Segment_Auto_vn.html')">
+                    <img class="block-son-image" src="/image/sam.png" alt="">
+                    <span class="block-son-text">Phân vùng tự động khối u</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div id="reference">
+        <p style="font-size: 18px; font-weight: 700; margin-top: 5px;">Tham khảo:<p>
+        <p>1. Timmerman, D et al. “Simple ultrasound-based rules for the diagnosis of ovarian cancer.” Ultrasound in obstetrics & gynecology : the official journal of the International Society of Ultrasound in Obstetrics and Gynecology vol. 31,6 (2008): 681-90. <a href="https://pubmed.ncbi.nlm.nih.gov/18504770/">doi:10.1002/uog.5365</a></p>
+        <p>2. Timmerman, D et al. “Ovarian cancer prediction in adnexal masses using ultrasound-based logistic regression models: a temporal and external validation study by the IOTA group.” Ultrasound in obstetrics & gynecology : the official journal of the International Society of Ultrasound in Obstetrics and Gynecology vol. 36,2 (2010): 226-34.<a href="https://pubmed.ncbi.nlm.nih.gov/18504770/">doi:10.1002/uog.7636</a></p>
+        <p>3. Van Calster, Ben et al. “Evaluating the risk of ovarian cancer before surgery using the ADNEX model to differentiate between benign, borderline, early and advanced stage invasive, and secondary metastatic tumours: prospective multicentre diagnostic study.” BMJ (Clinical research ed.) vol. 349 g5920. 15 Oct. 2014, <a href="https://pubmed.ncbi.nlm.nih.gov/25320247/">doi:10.1136/bmj.g5920</a></p>
+        <p>4. A. Kirillov et al., "Segment Anything," 2023 IEEE/CVF International Conference on Computer Vision (ICCV), Paris, France, 2023, pp. 3992-4003,<a href="https://ieeexplore.ieee.org/document/10378323/authors#authors">doi: 10.1109/ICCV51070.2023.00371.</a></p>
+    </div>
+    <footer style="margin-top: 30px;">
+        <div class="img-footer">
+            <a href="https://www.hust.edu.vn/"><img src="/image/logo-hust-02.png" alt="Logo" style="width: 200px;"></a>
+        </div>
+        <div class="info-footer">
+            <span>Dự án thuộc đề tài nghiên cứu của phòng Xử lý tín hiệu, Thông tin và Nội dung Đa phương tiện (SigM lab)</span>
+            <span>Địa chỉ: 802, 804, 806, 808, Tòa C7, Trường Điện-Điện tử, Đại học Bách Khoa Hà Nội</span>
+            <span>Điện thoại: (+84)999 999 999 - PGS.TS Lê Thị Lan</span>
+        </div>
+    </footer>
+</body>
+</html>

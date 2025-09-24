@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="/image/sigM_ver2.png" type="image/x-icon">
+    <link rel="stylesheet" href="/style/alertBox.css">
+	<link rel="stylesheet" href="/style/style.css">
+	<link rel="stylesheet" href="/style/home.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script src="/javascript/SimpleRules.js" defer></script>
+	<script src="/javascript/AdnexModel_vn.js" defer></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+	<title>Đánh giá khối u phần phụ</title >
+	<style>
+		footer {
+			position: relative;
+			bottom: 0;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			width: 100%; 
+			background-color: #b41d24; 
+			font-weight: 600; 
+			padding: 20px 20px;
+		}
+
+		footer .info-footer span{
+			text-align: right;
+			color: #FFFF;
+		}
+		footer span{
+			display: block;
+			position: relative;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+				<a href="https://www.facebook.com/profile.php?id=61552247136375"><img src="/image/HUST.jpg" alt="Logo" style="width:45px;"></a>
+                <a href="https://www.facebook.com/profile.php?id=61552247136375"><img src="/image/sigM.png" alt="Logo" style="width:120px;"></a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="home_vn.html">Trang chủ</a></li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Phương pháp đánh giá
+                  <span class="caret"style="left: 5%"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="SimpleRules_vn.html">Quy tắc cơ bản của IOTA</a></li>
+                    <li><a href="LogisticModel_vn.html">Thuật toán LR1 & LR2</a></li>
+                    <li><a href="AdnexModel_vn.html">Đánh giá khối u phần phụ</a></li>
+                  </ul>
+                </li>
+				<li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Công cụ hỗ trợ
+                        <span class="caret"style="left: 5%"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Detect_vn.html">Phát hiện khối U</a></li>
+                        <li><a href="Segment_vn.html">Phân vùng khối U với gợi ý</a></li>
+                        <li><a href="Segment_Auto_vn.html">Phân vùng tự động khối U</a></li>
+                    </ul>
+                  </li>
+                <li><a href="https://www.facebook.com/profile.php?id=61552247136375">Về chúng tôi</a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=61552247136375">Liên hệ</a></li>
+                <li style="display: flex; flex-direction: row; gap: 10px; height: fit-content;padding-top: 15px; padding-bottom: 15px;">
+                        <div class="flag"><a href="#" title="Vietnamese"><img src="/image/vietnam.png" alt=""></a></div>
+                        <div class="flag"><a href="AdnexModel.html" title="English"><img src="/image/england.jpg" alt=""></a></div>
+                </li>
+            </ul>
+          </div>
+      </nav>
+	<div class="notifications"></div>
+    <h1 style="text-align: center; margin-bottom: 50px;">Đánh giá khối u phần phụ</h1>
+    <div class="row">	
+		<div class="col-sm-12 col-md-12">
+			<div class="panel panel-primary">
+				<div class="panel-heading" style="background-color: #D9534F;">
+					<span class="panel-title">Tổng quát</span>
+				</div>
+				<div class="panel-body" id="part-one">
+					<p style="display: block;">Đánh giá các khối u tân sinh khác nhau trong mô hình adneXa (ADNEX) bao gồm ba yếu tố dự đoán lâm sàng và sáu yếu tố siêu âm: tuổi, nồng độ CA-125 huyết thanh, loại trung tâm (trung tâm ung thư và bệnh viện khác), đường kính tối đa của tổn thương, tỷ lệ mô rắn, hơn 10 khoang nang, số nhú, bóng cản và cổ trướng. Diện tích dưới đường cong đặc tính vận hành máy thu (AUC) để phân biệt cổ điển giữa khối u lành tính và ác tính là 0,94 (0,93 đến 0,95) khi xác nhận tạm thời. AUC là 0,85 đối với ung thư lành tính so với ranh giới, 0,92 đối với ung thư lành tính so với ung thư giai đoạn I, 0,99 đối với ung thư lành tính so với ung thư giai đoạn II-IV và 0,95 đối với ung thư lành tính so với di căn thứ phát. AUC giữa các phân nhóm ác tính dao động trong khoảng 0,71 đến 0,95, với AUC là 0,75 đối với ung thư ranh giới so với ung thư giai đoạn I và 0,82 đối với ung thư giai đoạn II-IV so với di căn thứ phát. Đường cong hiệu chuẩn cho thấy rủi ro ước tính là chính xác.</p>
+                    <p style="display: block;">Mô hình ADNEX cho thấy sự phân biệt tốt giữa các khối u lành tính và ác tính và đưa ra sự phân biệt từ công bằng đến chính xác giữa bốn loại khối u ác tính buồng trứng. Việc sử dụng ADNEX có khả năng cải thiện các quyết định phân loại và quản lý, do đó làm giảm tỷ lệ mắc bệnh và tử vong liên quan đến bệnh lý phần phụ.</p>
+					<p style="display: block; font-weight:700;">Tham khảo:</p>
+					<p>1. Van Calster, Ben et al. “Evaluating the risk of ovarian cancer before surgery using the ADNEX model to differentiate between benign, borderline, early and advanced stage invasive, and secondary metastatic tumours: prospective multicentre diagnostic study.” BMJ (Clinical research ed.) vol. 349 g5920. 15 Oct. 2014, <a href="https://pubmed.ncbi.nlm.nih.gov/25320247/">doi:10.1136/bmj.g5920</a></p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12">
+			<!-- Patient Information Box -->
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<span class="panel-title">Thông tin bệnh nhân</span>
+				</div>
+				<div class="panel-body">
+					<ul class="list-unstyled anamnesis_age Bi-m">
+						<li>
+							<div class="form-group clearfix">
+								<label>
+									ID bệnh nhân: <input class="w3-input w3-animate-input" type="text" name="patient_id">
+								</label>
+							</div>
+						</li>
+						<li>
+							<div class="form-group clearfix">
+								<label>
+									Họ và tên: <input class="w3-input" type="text" name="patient_fullname">
+								</label>
+							</div>
+						</li>
+						<li>
+							<div class="form-group clearfix">
+								<label>Chuẩn đoán:</label>
+							</div>
+						</li>
+						<li>
+							<div class="form-group clearfix-checkbox">
+								<label>Buồng trứng trái:<input type="checkbox" class="option-input checkbox" name="checkbox-left-ovary"></label>
+								<label>Buồng trứng phải:<input type="checkbox" class="option-input checkbox" name="checkbox-right-ovary"></label>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div> 
+		<!-- Left ovary -->
+		<div class="col-sm-12 col-md-12 left-ovary" style="display: none;">
+			<div style="background-color: rgba(255, 255, 255, 0.863); padding: 15px; border-radius: 3px; margin-bottom: 15px; border-left: 10px solid rgb(255, 153, 0);     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+				<span style="color: black ; font-size: 16px;">Buồng trứng trái</span></div>
+		</div>
+		<div class="col-sm-12 col-md-12 left-ovary LR-Left" style="display: none;">
+			<!-- Benign -->
+			<div class="panel panel-primary benign">
+				<div class="panel-body" style="margin: 5px 30px;">
+					<div class="row">
+						<div class="col-md-6"> <p><b>1. Tuổi của bệnh nhân (tuổi):</b></p></div>
+						<div class="col-md-2 input-checkbox-LR"><input type="number" class="form-control-70px pull-right filter-number" name="age_patient_left"></div>
+                        <div class="col-md-4">tuổi<p id="ageCheck"></p></div>
+                    </div>
+                    <div class="row">
+						<div class="col-md-6"> <p><b>2. Trung tâm ung bướu: </b></p> <p>Trung tâm của bạn có phải là trung tâm giới thiệu cấp ba với một đơn vị phụ khoa cụ thể không?<p></div>
+						<div class="col-md-6 dropdown" style="width: auto;">
+							<!-- Thêm thuộc tính "selected" để đặt giá trị mặc định là "No" -->
+							<select id="oncologyCenterLeft" style="width: 100px;">
+							  <option value="0">Không</option>
+							  <option value="1">Có</option>
+							</select>
+						  </div>
+					</div>
+					<div class="row">
+						<div class="col-md-6"> <p style="font-weight: 700;">3. Đường kính tối đa của tổn thương:</p> <p>Đường kính lớn nhất đo được trong ba mặt phẳng vuông góc</p></div>
+                        <div class="col-md-2"><input type="number" name="maximalDiameterLeft"></div>
+                        <div class="col-md-4">mm<p id="lesionCheck"></p></div>
+					</div>
+					<div class="row">
+						<div class="col-md-6"> <p style="font-weight: 700;">4. Đường kính lớn nhất của phần rắn lớn nhất:</p> <p>Đường kính tối đa của phần rắn lớn nhất không bao giờ có thể lớn hơn đường kính tối đa của tổn thương.</p></div>
+						<div class="col-md-2 input-checkbox-LR"><input type="number" class="form-control-70px pull-right filter-number" name="solid_part_left" ></div>
+                        <div class="col-md-4">mm<p id="solidCheck"></p></div>
+					</div>
+					<div class="row">
+						<div class="col-md-6"> <p style="font-weight: 700;">5. Các khoang nang:</p> <p>Tổn thương là đa ngăn hay đặc đa ngăn với hơn 10 nang được ngăn cách bởi vách ngăn?</p></div>
+						<div class="col-md-6 dropdown" style="width: auto;">
+							<!-- Thêm thuộc tính "selected" để đặt giá trị mặc định là "No" -->
+							<select id="cystLoculesLeft">
+							  <option value="0" selected>Không</option>
+							  <option value="1">Có</option>
+							</select>
+						  </div>					
+					</div>
+					<div class="row">
+						<div class="col-md-6"><p style="font-weight: 700;">6. Số lượng nhú (hình lồi nhú):</p> <p>Các nhú phải có ít nhất 3 mm. Lưu ý: Nếu có các nhú thì đường kính tối đa của phần rắn lớn nhất không thể bằng 0!</p></div>
+						<div class="col-md-6 dropdown" style="width: auto;">
+							<!-- Thêm thuộc tính "selected" để đặt giá trị mặc định là "No" -->
+							<select id="papillationsLeft">
+							  <option value="0" selected>0</option>
+							  <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">>3</option>
+							</select>
+						  </div>					
+                    </div>
+					<div class="row">
+						<div class="col-md-6"><p style="font-weight: 700;">7. Sự hiện diện của bóng cản:</p> <p>Sự hiện diện của bóng âm thanh được định nghĩa là mất tiếng vang âm thanh đằng sau cấu trúc hấp thụ âm thanh</p></div>
+						<div class="col-md-6 dropdown" style="width: auto;">
+							<!-- Thêm thuộc tính "selected" để đặt giá trị mặc định là "No" -->
+							<select id="acousticShadowsLeft">
+							  <option value="0" selected>Không</option>
+							  <option value="1">Có</option>
+							</select>
+						  </div>
+					</div>
+					<div class="row">
+						<div class="col-md-6"><p style="font-weight: 700;">8. Sự hiện diện của cổ trướng:</p> <p>Có báng bụng ngoài vùng chậu không?</p></div>
+						<div class="col-md-6 dropdown" style="width: auto;">
+							<!-- Thêm thuộc tính "selected" để đặt giá trị mặc định là "No" -->
+							<select id="ascitesPresentLeft">
+							  <option value="0" selected>Không</option>
+							  <option value="1">Có</option>
+							</select>
+						  </div>
+					</div>
+                    <div class="row">
+						<div class="col-md-6"><p style="font-weight: 700;">9. Nồng độ CA-125:</p></div>
+						<div class="col-md-2 input-checkbox-LR"><input type="number" class="form-control-70px pull-right filter-number" name="ca125Left"></div>
+                        <div class="col-md-4">U/ml<p id="ca125Check"></p></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Right ovary -->
+		<div class="col-sm-12 col-md-12 right-ovary" style="display: none;">
+			<div style="background-color: rgba(255, 255, 255, 0.863); padding: 15px; border-radius: 3px; margin-bottom: 15px; border-left: 10px solid rgb(255, 153, 0); box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+				<span style="color: black ; font-size: 16px;">Buồng trứng phải</span></div>
+		</div>
+		<div class="col-sm-12 right-ovary LR-Right" style="display: none;">
+			<!-- Benign -->
+			<div class="panel panel-primary benign">
+				<div class="panel-body" style="margin: 5px 30px;">
+					<div class="row">
+						<div class="col-md-6"> <p><b>1. Tuổi của bệnh nhân (tuổi):</b></p></div>
+						<div class="col-md-2 input-checkbox-LR"><input type="number" class="form-control-70px pull-right filter-number" name="age_patient_right"></div>
+                        <div class="col-md-4">tuổi<p id="ageCheckRight"></p></div>
+                    </div>
+                    <div class="row">
+						<div class="col-md-6"> <p><b>2. Trung tâm ung bướu: </b></p> <p>Trung tâm của bạn có phải là trung tâm giới thiệu cấp ba với một đơn vị phụ khoa cụ thể không?<p></div>
+						<div class="col-md-6 dropdown" style="width: auto;">
+							<!-- Thêm thuộc tính "selected" để đặt giá trị mặc định là "No" -->
+							<select id="oncologyCenterRight" style="width: 100px;">
+							  <option value="0" selected>Không</option>
+							  <option value="1">Có</option>
+							</select>
+						  </div>
+					</div>
+					<div class="row">
+						<div class="col-md-6"> <p style="font-weight: 700;">3. Đường kính tối đa của tổn thương:</p> <p>Đường kính lớn nhất đo được trong ba mặt phẳng vuông góc</p></div>
+                        <div class="col-md-2"><input type="number" name="maximalDiameterRight"></div>
+                        <div class="col-md-4">mm<p id="lesionCheckRight"></p></div>
+					</div>
+					<div class="row">
+						<div class="col-md-6"> <p style="font-weight: 700;">4. Đường kính lớn nhất của phần rắn lớn nhất:</p> <p>Đường kính tối đa của phần rắn lớn nhất không bao giờ có thể lớn hơn đường kính tối đa của tổn thương.</p></div>
+						<div class="col-md-2 input-checkbox-LR"><input type="number" class="form-control-70px pull-right filter-number" name="solid_part_right" ></div>
+                        <div class="col-md-4">mm<p id="solidCheckRight"></p></div>
+					</div>
+					<div class="row">
+						<div class="col-md-6"> <p style="font-weight: 700;">5. Các khoang nang:</p> <p>Tổn thương là đa ngăn hay đặc đa ngăn với hơn 10 nang được ngăn cách bởi vách ngăn?</p></div>
+						<div class="col-md-6 dropdown" style="width: auto;">
+							<!-- Thêm thuộc tính "selected" để đặt giá trị mặc định là "No" -->
+							<select id="cystLoculesRight">
+							  <option value="0" selected>Không</option>
+							  <option value="1">Có</option>
+							</select>
+						  </div>					
+					</div>
+					<div class="row">
+						<div class="col-md-6"><p style="font-weight: 700;">6. Số lượng nhú (hình lồi nhú):</p> <p>Các nhú phải có ít nhất 3 mm. Lưu ý: Nếu có các nhú thì đường kính tối đa của phần rắn lớn nhất không thể bằng 0!</p></div>
+						<div class="col-md-6 dropdown" style="width: auto;">
+							<!-- Thêm thuộc tính "selected" để đặt giá trị mặc định là "No" -->
+							<select id="papillationsRight">
+							  <option value="0" selected>0</option>
+							  <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">>3</option>
+							</select>
+						  </div>					
+                    </div>
+					<div class="row">
+						<div class="col-md-6"><p style="font-weight: 700;">7. Sự hiện diện của bóng cản:</p> <p>Sự hiện diện của bóng âm thanh được định nghĩa là mất tiếng vang âm thanh đằng sau cấu trúc hấp thụ âm thanh</p></div>
+						<div class="col-md-6 dropdown" style="width: auto;">
+							<!-- Thêm thuộc tính "selected" để đặt giá trị mặc định là "No" -->
+							<select id="acousticShadowsRight">
+							  <option value="0" selected>Không</option>
+							  <option value="1">Có</option>
+							</select>
+						  </div>
+					</div>
+					<div class="row">
+						<div class="col-md-6"><p style="font-weight: 700;">8. Sự hiện diện của cổ trướng:</p> <p>Có báng bụng ngoài vùng chậu không?</p></div>
+						<div class="col-md-6 dropdown" style="width: auto;">
+							<!-- Thêm thuộc tính "selected" để đặt giá trị mặc định là "No" -->
+							<select id="ascitesPresentRight">
+							  <option value="0" selected>Không</option>
+							  <option value="1">Có</option>
+							</select>
+						  </div>
+					</div>
+                    <div class="row">
+						<div class="col-md-6"><p style="font-weight: 700;">9. Nồng độ CA-125:</p></div>
+						<div class="col-md-2 input-checkbox-LR"><input type="number" class="form-control-70px pull-right filter-number" name="ca125Right"></div>
+                        <div class="col-md-4">U/ml<p id="ca125CheckRight"></p></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-12 col-md-12" style="text-align: center;">
+		<!-- Buttons Box -->
+		<div class="actions">
+			<button type="button" onclick="resetCheckboxes_LR()" id="clear" class="btn btn-danger" fdprocessedid="i6bn28">Xóa thông tin</button>
+			<button type="submit" onclick="checkResults_LR()" class="btn btn-success" fdprocessedid="trq4g">Kiểm tra</button>
+			<button type="button" onclick="addPatient_LR()" id="savePatientInfo" class="btn btn-primary" ><i class="bi bi-floppy"></i></button>
+		</div>
+	</div>
+	<div class="col-sm-12 col-md-12">
+		<div id="results-diagnosis" style="display: none;">
+			<h2>Kết quả</h2>
+			<div class="text-alert-left" style="background-color: rgba(255, 255, 255, 0.863); padding: 10px; border-radius: 3px; margin-bottom: 15px; border-left: 10px solid #337AB7; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;"><h4 style="color: #D9534F;font-weight: 700;">Kết quả phân tích buồng trứng trái</h4></div>
+            <div class="row text-alert-left" style="align-items: flex-start; display: none;">
+				<div class="col-md-6">
+					<div class="notify-results">
+						<h4>Đánh giá khả năng lành tính</h4>
+						<p>Khả năng là u lành tính:</p> 
+						<p class="text-notify" id="benignTumor">...</p>
+						<p>%</p>
+					</div>
+					<div class="notify-results">
+						<h4>Đánh giá nguy cơ ác tính</h4>
+						<p>Nguy cơ là u ác tính:</p>
+						<p class="text-notify" id="malignant"> ... </p>
+						<p>%</p>
+					</div>
+					<div class="notify-results">
+						<h4>Ung thư ranh giới</h4>
+						<p>Nguy cơ là ung thư ranh giới:</p>
+						<p class="text-notify" id="borderline"> ... </p>
+						<p>%</p>
+					</div>
+					<div class="notify-results">
+						<h4>Ung thư giai đoạn I</h4>
+						<p>Nguy cơ là ung thư giai đoạn I:</p>
+						<p class="text-notify" id="stageI"> ... </p>
+						<p>%</p>
+					</div>
+					<div class="notify-results">
+						<h4>Ung thư giai đoạn II-IV</h4>
+						<p>Nguy cơ là ung thư giai đoạn II-IV:</p>
+						<p class="text-notify" id="stageIIIV"> ... </p>
+						<p>%</p>
+					</div>
+					<div class="notify-results">
+						<h4>Di căn</h3>
+						<p>Nguy cơ là di căn:</p>
+						<p class="text-notify" id="metastatic"> ... </p>
+						<p>%</p>
+					</div>
+				</div>
+                <div class="col-md-6" id="columnchart_material"></div>
+            </div>
+			<div class="text-alert-right" style="background-color: rgba(255, 255, 255, 0.863); padding: 10px; border-radius: 3px; margin-bottom: 15px; border-left: 10px solid #337AB7; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;"><h4 style="color: #D9534F;font-weight: 700;">Kết quả phân tích buồng trứng phải</h4></div>
+			<div class="row text-alert-right" style="align-items: flex-start; display: none;">
+				<div class="col-md-6" id="columnchart_materialRight"></div>
+				<div class="col-md-6">
+					<div class="notify-results">
+						<h4>Đánh giá khả năng lành tính</h4>
+						<p>Khả năng là u lành tính:</p> 
+						<p class="text-notify" id="benignTumorRight">...</p>
+						<p>%</p>
+					</div>
+					<div class="notify-results">
+						<h4>Đánh giá nguy cơ ác tính</h4>
+						<p>Nguy cơ là u ác tính:</p>
+						<p class="text-notify" id="malignantRight"> ... </p>
+						<p>%</p>
+					</div>
+					<div class="notify-results">
+						<h4>Ung thư ranh giới</h4>
+						<p>Nguy cơ là ung thư ranh giới:</p>
+						<p class="text-notify" id="borderlineRight"> ... </p>
+						<p>%</p>
+					</div>
+					<div class="notify-results">
+						<h4>Ung thư giai đoạn I</h4>
+						<p>Nguy cơ là ung thư giai đoạn I:</p>
+						<p class="text-notify" id="stageIRight"> ... </p>
+						<p>%</p>
+					</div>
+					<div class="notify-results">
+						<h4>Ung thư giai đoạn II-IV</h4>
+						<p>Nguy cơ là ung thư giai đoạn II-IV:</p>
+						<p class="text-notify" id="stageIIIVRight"> ... </p>
+						<p>%</p>
+					</div>
+					<div class="notify-results">
+						<h4>Di căn</h3>
+						<p>Nguy cơ là di căn:</p>
+						<p class="text-notify" id="metastaticRight"> ... </p>
+						<p>%</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer style="margin-top: 50px;" class="col-sm-12 col-md-12">
+        <div class="img-footer">
+            <a href="https://www.hust.edu.vn/"><img src="/image/logo-hust-02.png" alt="Logo" style="width: 200px;"></a>
+        </div>
+        <div class="info-footer">
+            <span>Dự án thuộc đề tài nghiên cứu của phòng Xử lý tín hiệu, Thông tin và Nội dung Đa phương tiện (SigM lab)</span>
+            <span>Địa chỉ: 802, 804, 806, 808, Tòa C7, Trường Điện-Điện tử, Đại học Bách Khoa Hà Nội</span>
+            <span>Điện thoại: (+84)999 999 999 - PGS.TS Lê Thị Lan</span>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Đăng nhập</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/style/alertBox.css">
+		<link rel="icon" href="/image/sigM_ver2.png" type="image/x-icon">
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="login/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="login/css/style.css">
+		<script src="./javascript/Alarm.js" defer></script>
+	</head>
+	<style>
+		.image-holder{
+			height: 500px;
+			width: 500px;
+			object-fit: cover; 
+		}
+		#image_hust3{
+			height: 100%;
+			width: 100%;
+			object-fit: cover; 
+		}
+		.flag img {
+			display: block;
+			object-fit: fill;
+			width: 30px;
+			height: 20px;
+		}
+	</style>
+	<body>
+		<div class="notifications"></div>
+		<div class="wrapper" style="background-image: url('login/images/bg.jpg');">
+			<div class="inner">
+				<div class="image-holder">
+					<img src="login/images/hust3.jpg" alt="" id="image_hust3">
+				</div>
+				<form action="" id="loginForm">
+					<h3>Đăng nhập</h3>
+					<div style="display: flex; flex-direction: row; gap: 10px; height: fit-content;padding-top: 15px; padding-bottom: 15px; justify-content: flex-end;">
+                        <div class="flag"><a href="#" title="Tiếng Việt"><img src="./image/vietnam.png" alt=""></a></div>
+                        <div class="flag"><a href="/index_en.html" title="English"><img src="./image/england.jpg" alt=""></a></div>
+					</div>
+					<div class="form-wrapper">
+						<input type="text" placeholder="Tên đăng nhập" class="form-control" id="username">
+						<i class="zmdi zmdi-account"></i>
+					</div>
+					<div class="form-wrapper">
+						<input type="password" placeholder="Mật khẩu" class="form-control" id="password">
+						<i class="zmdi zmdi-lock"></i>
+					</div>
+					<button type="button" id="button_check">Đăng nhập
+						<i class="zmdi zmdi-arrow-right"></i>
+					</button>
+				</form>
+			</div>
+		</div>
+		<script>
+			// Lắng nghe sự kiện click trên nút có id là button_check
+			document.getElementById('button_check').addEventListener('click', function() {
+				// Lấy giá trị từ các input
+				const username = document.getElementById('username').value;
+				const password = document.getElementById('password').value;
+
+				// Kiểm tra tên đăng nhập và mật khẩu
+				if (username === 'hust' && password === 'hust') {
+					// Tạo thông báo thành công
+					createToast('success', 'fa-solid fa-circle-check', 'Thành công', 'Đăng nhập thành công');
+
+					// Đặt thời gian chờ 5 giây trước khi chuyển hướng
+					setTimeout(() => {
+						window.location.href = './template/home_vn.html';
+					}, 5000); // 5000 milliseconds = 5 seconds
+				} else {
+					// Tạo thông báo lỗi đăng nhập
+					createToast('error', 'fa-solid fa-times-circle', 'Thất bại', 'Tên đăng nhập hoặc mật khẩu không đúng.');
+				}
+			});
+		</script>
+	</body>
+</html>

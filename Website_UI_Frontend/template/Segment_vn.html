@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/image/sigM_ver2.png" type="image/x-icon">
+    <link rel="stylesheet" href="/style/alertBox.css">
+	<!-- <link rel="stylesheet" href="/style/style.css"> -->
+	<link rel="stylesheet" href="/style/home.css">
+    <link rel="stylesheet" href="/style/app.min.css">
+    <link rel="stylesheet" href="/style/style_uploadFile.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quantico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<title>Phân vùng với gợi ý</title >
+    <style>
+        footer span{
+            display: block;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        footer {
+            position: relative;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%; 
+            background-color: #b41d24; 
+            font-weight: 600; 
+            padding: 20px 20px;
+        }
+
+        footer .info-footer span{
+            text-align: right;
+            color: #FFFF;
+        }
+        #form_upload{
+            width: 100%;
+        }
+        #form_upload form{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .image-map-wrapper{
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="https://www.facebook.com/profile.php?id=61552247136375"><img src="/image/HUST.jpg" alt="Logo" style="width:45px;"></a>
+                <a href="https://www.facebook.com/profile.php?id=61552247136375"><img src="/image/sigM.png" alt="Logo" style="width:120px;"></a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="home_vn.html">Trang chủ</a></li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Phương pháp đánh giá
+                  <span class="caret"style="left: 5%"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="SimpleRules_vn.html">Quy tắc cơ bản của IOTA</a></li>
+                    <li><a href="LogisticModel_vn.html">Thuật toán LR1 & LR2</a></li>
+                    <li><a href="AdnexModel_vn.html">Đánh giá khối u phần phụ</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Công cụ hỗ trợ
+                        <span class="caret"style="left: 5%"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Detect_vn.html">Phát hiện khối U</a></li>
+                        <li><a href="Segment_vn.html">Phân vùng khối U với gợi ý</a></li>
+                        <li><a href="Segment_Auto_vn.html">Phân vùng tự động khối U</a></li>
+                    </ul>
+                  </li>
+                <li><a href="https://www.facebook.com/profile.php?id=61552247136375">Về chúng tôi</a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=61552247136375">Liên hệ</a></li>
+                <li style="display: flex; flex-direction: row; gap: 10px; height: fit-content;padding-top: 15px; padding-bottom: 15px;">
+                        <div class="flag"><a href="#" title="Vietnamese"><img src="/image/vietnam.png" alt=""></a></div>
+                        <div class="flag"><a href="Segment_en.html" title="English"><img src="/image/england.jpg" alt=""></a></div>
+                </li>
+            </ul>
+          </div>
+      </nav>
+      <div class="notifications"></div>    
+      <body>
+        <p style="text-align: center; font-weight: 600; font-size: 20px; margin: 50px 0">PHƯƠNG PHÁP PHÂN VÙNG U DỰA TRÊN GỢI Ý </p>
+        <div id="form_upload">
+            <form id="file-upload-form" class="uploader">
+                <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
+                <label for="file-upload" id="file-drag">
+                <img id="file-image" src="#" alt="Preview" class="hidden">
+                <div id="start">
+                    <i class="fa fa-download" aria-hidden="true"></i>
+                    <div>Chọn ảnh hoặc kéo thả ảnh tại đây</div>
+                    <div id="notimage" class="hidden" style="color: red;">Vui lòng chọn hoặc kéo thả hình ảnh</div>
+                    <span id="file-upload-btn" class="btn btn-primary" style="left: unset; transform: unset;">Chọn ảnh từ máy tính</span>
+                </div>
+                <!-- <div id="response" class="hidden">
+                    <div id="messages"></div>
+                    <progress class="progress" id="file-progress" value="0">
+                    <span>0</span>%     
+                    </progress>
+                </div>
+                <div id="button-del-search" class="hidden">
+                    <button><i class="bi bi-file-earmark-x"></i>&nbsp;Xóa ảnh</button>
+                    <button><i class="bi bi-search"></i>&nbsp;Phát hiện tự động</button>
+                </div> -->
+                </label>
+            </form>
+        </div>
+        <div class="container toggle-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="image-map-wrapper">
+                        <div id="image-map-container">
+                            <div id="image-map" style="max-width: 100%">
+                                <img id="image-display" src="" alt="Uploaded Image">
+                                <span class="glyphicon glyphicon-picture"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table" id="image-mapper-table">
+                        <thead>
+                            <tr>
+                                <th>Chọn</th>
+                                <th>Hình dạng</th>
+                                <th>Kích thước hình ảnh</th>
+                                <th>Tọa độ</th>
+                                <th style="width: 100px;">Ghi chú</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="width: 65px">
+                                    <div class="control-label input-sm">
+                                        <input type="radio" name="im[0][active]" value="1">
+                                    </div>
+                                </td>
+                                <td>
+                                    <select name="im[0][shape]" class="form-control input-sm">
+                                        <option value>---</option>
+                                        <option value="rect">Prompt Box</option>
+                                        <option value="poly">Prompt Point</option>
+                                        <option value="circle">Prompt Mask</option>
+                                    </select>
+                                </td>
+                                <td><p id="image-size"></p></td>
+                                <td><p id="coordinate-text"></p></td>
+                                <td style="display: flex; justify-content: center;">
+                                    <button class="btn btn-default btn-sm remove-row" name="im[0][remove]">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <!-- <tfoot>
+                            <tr>
+                                <th colspan="6" style="text-align: right">
+                                    <button type="button" class="btn btn-danger btn-sm add-row">
+                                        <span class="glyphicon glyphicon-plus"></span> Add New Area
+                                    </button>
+                                </th>
+                            </tr>
+                        </tfoot> -->
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="container toggle-content segment">
+            <div class="row">
+                <div class="col-md-12" style="text-align: center">
+                    <!-- <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#modal-code">Phân vùng tự động</button> -->
+                    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" id="modal-code"><i class="bi bi-search"></i>&nbsp;Kiểm tra thông tin</button>
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" id="modal-segment" disabled><i class="bi bi-cpu"></i>&nbsp;Phân vùng tự động</button>
+                    <button type="button" class="btn btn-danger btn-lg" id="delete-image-button">
+                        <i class="bi bi-file-earmark-x"></i>&nbsp;Xóa ảnh
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="image-mapper-load" tabindex="-1" role="dialog" aria-labelledby="image-mapper-load-label" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" id="image-mapper-dialog">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="image-mapper-load-label">Load Image from Website</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group input-group-sm has-error">
+                            <input type="text" id="image-mapper-url" class="form-control input-sm" placeholder="">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="image-mapper-continue">Continue</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="result" style="display: none;">
+            <h4 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; margin: 20px 0; font-weight: bold;">KẾT QUẢ PHÂN VÙNG ẢNH DỰA TRÊN GỢI Ý</h3>
+            <div style="display: flex; justify-content: center;">
+                <img id="convertedImage" src="" alt="Converted Image" style="margin: 10px 0;">
+            </div>
+            <div style="text-align: center; margin-top: 10px;">
+                <button id="downloadButton" class="btn btn-primary btn-lg"><i class="bi bi-cloud-arrow-down"></i>&nbsp;Tải ảnh xuống</button>
+            </div>
+        </div>
+        
+        <!-- <div class="modal fade" id="modal-code" tabindex="-1" role="dialog" aria-labelledby="modal-code-label" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" id="modal-code-dialog">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="modal-code-label">Generated Image Map Output</h4>
+                    </div>
+                    <div class="modal-body">
+                        <textarea class="form-control input-sm" readonly id="modal-code-result" rows="10"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+      </body>
+
+      <footer>
+        <div class="img-footer">
+            <a href="https://www.hust.edu.vn/"><img src="/image/logo-hust-02.png" alt="Logo" style="width: 200px;"></a>
+        </div>
+        <div class="info-footer">
+            <span>Dự án thuộc đề tài nghiên cứu của phòng Xử lý tín hiệu, Thông tin và Nội dung Đa phương tiện (SigM lab)</span>
+            <span>Địa chỉ: 802, 804, 806, 808, Tòa C7, Trường Điện-Điện tử, Đại học Bách Khoa Hà Nội</span>
+            <span>Điện thoại: (+84)999 999 999 - PGS.TS Lê Thị Lan</span>
+        </div>
+      </footer>
+      <script src="/javascript/merge_code.js"></script>
+      <script>
+          (function($) {
+              $(document).trigger('init');
+          })(jQuery);
+      </script>
+</body>
+</html>

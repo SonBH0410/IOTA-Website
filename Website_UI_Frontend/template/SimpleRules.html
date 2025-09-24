@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="/image/sigM_ver2.png" type="image/x-icon">
+    <link rel="stylesheet" href="/style/style.css">
+	<link rel="stylesheet" href="/style/alertBox.css">
+	<link rel="stylesheet" href="/style/home.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script src="/javascript/SimpleRules.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+	<title>Simple Rules</title>
+	<style>
+		footer {
+            position: relative;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%; 
+            background-color: #b41d24; 
+            font-weight: 600; 
+            padding: 20px 20px;
+        }
+
+        footer .info-footer span{
+            text-align: right;
+            color: #FFFF;
+        }
+        footer span{
+            display: block;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+				<a href="https://hust.edu.vn/"><img src="/image/HUST.jpg" alt="Logo HUST" style="width: 45px;"></a>
+                <a href="https://www.facebook.com/profile.php?id=61552247136375"><img src="/image/sigM.png" alt="Logo" style="width:120px;"></a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="home_en.html">Home</a></li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Models
+                  <span class="caret"style="left: 5%"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="SimpleRules.html">Simple Rules</a></li>
+                    <li><a href="LogisticModel.html">LR1 & LR2</a></li>
+                    <li><a href="AdnexModel.html">Adnex Models</a></li>
+                  </ul>
+                </li>
+				<li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tools
+                        <span class="caret" style="left: 2px;"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Detect_en.html">Automatic Tumor Segmentation</a></li>
+                        <li><a href="Segment_en.html">Tumor Segmentation with Prompt</a></li>
+                        <li><a href="Segment_Auto_en.html">Automatic Tumor Segmentation</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://www.facebook.com/profile.php?id=61552247136375">About us</a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=61552247136375">Contact</a></li>
+                <li style="display: flex; flex-direction: row; gap: 10px; height: fit-content;padding-top: 15px; padding-bottom: 15px;">
+                        <div class="flag"><a href="/template/SimpleRules_vn.html" title="Vietnamese"><img src="/image/vietnam.png" alt=""></a></div>
+                        <div class="flag"><a href="#" title="English"><img src="/image/england.jpg" alt=""></a></div>
+                </li>
+            </ul>
+          </div>
+      </nav>
+	<div class="notifications"></div>
+    <h1 style="text-align: center; margin-bottom: 50px;">IOTA Simple Rules for Adnexal Masses</h1>
+	<div class="row">	
+		<div class="col-sm-12 col-md-12">
+			<div class="panel panel-primary As-D">
+				<div class="panel-heading" style="background-color: #D9534F;">
+					<span class="panel-title">Overview</span>
+				</div>
+				<div class="panel-body" id="part-one">
+					<p>The Simple Rules are a preoperative classification system for ovarian tumors, consisting of five features typical for benign tumors (B-features) and five features typical for malignant tumors (M-features). The Simple Rules can be used to diagnose ovarian cancer in women who have at least one persistent adnexal (ovarian, para-ovarian, and tubal) tumor and are considered to require surgery. Based on which of the B- and M-features that apply, tumors are classified as Benign, Malignant or Inconclusive:
+					<ul>
+						<li>Benign - Only B-features apply</li>
+						<li>Malignant - Only M-features apply</li>
+						<li>Inconclusive - no features apply, or both B- and M-features apply</li>
+					</ul>
+					<p>Most adnexal tumors in an ordinary tumor population can be correctly classified as benign or malignant using simple ultrasound-based rules. For tumors that cannot be classified using simple rules, ultrasound examination by an expert examiner might be useful.</p>
+					<!-- <img src="/IOTA_Web_HUST/productionfiles/SimpleRulesIOTA.png" alt="" style="width: 1000px;"> -->
+					<p style="font-weight:700;">References:</p>
+					<p>1. Timmerman, D et al. “Simple ultrasound-based rules for the diagnosis of ovarian cancer.” Ultrasound in obstetrics & gynecology : the official journal of the International Society of Ultrasound in Obstetrics and Gynecology vol. 31,6 (2008): 681-90. <a href="https://pubmed.ncbi.nlm.nih.gov/18504770/">doi:10.1002/uog.5365</a></p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12">
+			<!-- Patient Information Box -->
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<span class="panel-title">Identification Data</span>
+				</div>
+				<div class="panel-body">
+					<ul class="list-unstyled anamnesis_age Bi-m">
+						<li>
+							<div class="form-group clearfix">
+								<label>
+									Patient ID: <input class="w3-input w3-animate-input" type="text" name="patient_id">
+								</label>
+							</div>
+						</li>
+						<li>
+							<div class="form-group clearfix">
+								<label>
+									Fullname: <input class="w3-input" type="text" name="patient_fullname">
+								</label>
+							</div>
+						</li>
+						<li>
+							<div class="form-group clearfix">
+								<label>Diagnosis:</label>
+							</div>
+						</li>
+						<li>
+							<div class="form-group clearfix-checkbox">
+								<label>Left Ovary:<input type="checkbox" class="option-input checkbox" name="checkbox-left-ovary"></label>
+								<label>Right Ovary:<input type="checkbox" class="option-input checkbox" name="checkbox-right-ovary"></label>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div> 
+		<!-- Left ovary -->
+		<div class="col-sm-12 col-md-12 left-ovary" style="display: none;">
+			<div style="background-color: rgba(255, 255, 255, 0.863); padding: 15px; border-radius: 3px; margin-bottom: 15px; border-left: 10px solid rgb(255, 153, 0);     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+				<span style="color: black ; font-size: 16px;">Left Ovary</span></div>
+		</div>
+		<div class="col-sm-12 col-md-6 left-ovary" style="display: none;">
+			<!-- Benign -->
+			<div class="panel panel-primary benign">
+				<div class="panel-heading">
+					<span class="panel-title">Rules for predicting a benign tumor (B-rules)</span>
+				</div>
+				<div class="panel-body" style="height: 340px;">
+					<div class="row">
+						<div class="col-sm-10"></div>
+						<div class="col-sm-1"><p>Yes</p></div>
+						<div class="col-sm-1"><p>No</p></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>B1. Unilocular:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="unilocular_yes_left" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="unilocular_no_left" ></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>B2. Presence of solid components where the largest solid component has a largers diameter < 7 mm:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="solid_components_yes_left" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="solid_components_no_left"></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>B3. Precence of acoustic:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="acoustic_shadows_presence_yes_left" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="acoustic_shadows_presence_no_left" ></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>B4. Smooth multilocular tumor with largest diameter < 100mm:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="multilocular_tumor_yes_left" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="multilocular_tumor_no_left" ></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>B5. No blood flow (color score 1)</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="no_blood_flow_yes_left" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="no_blood_flow_no_left" ></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-6 left-ovary" style="display: none;">
+			<!-- Ultrasound Findings Box -->
+			<div class="panel panel-primary malignant">
+				<div class="panel-heading">
+					<span class="panel-title">Rules for predicting a malignant tumor (M-rules)</span>
+				</div>
+				<div class="panel-body" style="height: 340px;">
+					<div class="row">
+						<div class="col-sm-10"></div>
+						<div class="col-sm-1"><p>Yes</p></div>
+						<div class="col-sm-1"><p>No</p></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>M1. Irregular solid tumor:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="irregular_solid_tumor_yes_left" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="irregular_solid_tumor_no_left" ></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>M2. Presence of ascites:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="presence_of_ascites_yes_left" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="presence_of_ascites_no_left"></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>M3. At least four papillary structures:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="papillary_structures_yes_left" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="papillary_structures_no_left" ></div>
+					</div>	
+					<div class="row">
+						<div class="col-sm-10"> <p>M4. Irregular multilocular soild tumor with largest diameter >= 100:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="irregular_soild_tumor_yes_left" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="irregular_soild_tumor_no_left" ></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>M5. Very strong blood flow (color score 4):</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="strong_blood_flow_yes_left" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="strong_blood_flow_no_left" ></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Right ovary -->
+		<div class="col-sm-12 col-md-12 right-ovary" style="display: none;">
+			<div style="background-color: rgba(255, 255, 255, 0.863); padding: 15px; border-radius: 3px; margin-bottom: 15px; border-left: 10px solid rgb(255, 153, 0);     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+				<span style="color: black ; font-size: 16px;">Right Ovary</span></div>
+		</div>
+		<div class="col-sm-12 col-md-6 right-ovary" style="display: none;">
+			<!-- Benign -->
+			<div class="panel panel-primary benign">
+				<div class="panel-heading">
+					<span class="panel-title">Rules for predicting a benign tumor (B-rules)</span>
+				</div>
+				<div class="panel-body" style="height: 340px;">
+					<div class="row">
+						<div class="col-sm-10"></div>
+						<div class="col-sm-1"><p>Yes</p></div>
+						<div class="col-sm-1"><p>No</p></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>B1. Unilocular:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="unilocular_yes_right" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="unilocular_no_right" ></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>B2. Presence of solid components where the largest solid component has a largers diameter < 7 mm:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="solid_components_yes_right" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="solid_components_no_right"></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>B3. Precence of acoustic:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="acoustic_shadows_presence_yes_right" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="acoustic_shadows_presence_no_right" ></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>B4. Smooth multilocular tumor with largest diameter < 100mm:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="multilocular_tumor_yes_right" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="multilocular_tumor_no_right" ></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>B5. No blood flow (color score 1)</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="no_blood_flow_yes_right" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="no_blood_flow_no_right" ></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-6 right-ovary" style="display: none;">
+			<!-- Ultrasound Findings Box -->
+			<div class="panel panel-primary malignant">
+				<div class="panel-heading">
+					<span class="panel-title">Rules for predicting a malignant tumor (M-rules)</span>
+				</div>
+				<div class="panel-body" style="height: 340px;">
+					<div class="row">
+						<div class="col-sm-10"></div>
+						<div class="col-sm-1"><p>Yes</p></div>
+						<div class="col-sm-1"><p>No</p></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>M1. Irregular solid tumor:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="irregular_solid_tumor_yes_right" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="irregular_solid_tumor_no_right" ></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>M2. Presence of ascites:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="presence_of_ascites_yes_right" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="presence_of_ascites_no_right"></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>M3. At least four papillary structures:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="papillary_structures_yes_right" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="papillary_structures_no_right" ></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>M4. Irregular multilocular soild tumor with largest diameter >= 100:</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="irregular_soild_tumor_yes_right" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="irregular_soild_tumor_no_right" ></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10"> <p>M5. Very strong blood flow (color score 4):</p></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="strong_blood_flow_yes_right" ></div>
+						<div class="col-sm-1 input-checkbox"><input type="checkbox"  class="form-control-70px pull-right filter-number" name="strong_blood_flow_no_right" ></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-12 col-md-12" style="text-align: center;">
+		<!-- Buttons Box -->
+		<div class="actions">
+			<button type="button" onclick="resetCheckboxes()" id="clear" class="btn btn-danger" fdprocessedid="i6bn28">Reset</button>
+			<button type="submit" onclick="checkResults()" class="btn btn-success" fdprocessedid="trq4g">Submit</button>
+			<button type="button" onclick="window.print()" id="savePatientInfo" class="btn btn-primary" ><i class="bi bi-floppy"></i></button>
+		</div>
+	</div>
+	<div class="col-sm-12 col-md-12">
+		<div id="group-text-diagnosis" style="display: none;">
+			<h3>Results</h3>
+			<p style="display: none;" id="text-diagnosis-results-left"></p>
+			<p style="display: none;" id="text-diagnosis-results-right"></p>
+			<h3>Comments</h3>
+			<p style="display: none;" id="text-diagnosis-comments-left"></p>
+			<p style="display: none;" id="text-diagnosis-comments-right"></p>
+		</div>
+	</div>
+    <footer style="margin-top: 120px;">
+        <div class="img-footer" >
+            <a href="https://www.hust.edu.vn/"><img src="/image/logo-hust-02.png" alt="Logo" style="width: 200px;"></a>
+        </div>
+        <div class="info-footer">
+            <span>The project is developed by the Signal Processing, Information, and Multimedia Laboratory (SigM lab)</span>
+            <span>Address: 802, 804, 806, 808, Building C7, School of Electrical and Electronic Engineering, HUST</span>
+            <span>Phone: (+84) 999 999 999 - Assoc. Prof. Dr. Le Thi Lan</span>
+        </div>
+    </footer>  
+</body>
+</html>
